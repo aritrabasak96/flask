@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>search data</title>
+  </head>
+  <body>
+     <h3>search books</h3>
+     <input type="text" name="search" value="" placeholder="search Books">
+      <button type="button" name="button">search</button>
+
+      <div class="search-result">
+
+        <div class="search-r">
+
+          <h4></h4>
+          <p></p>
+          <h5></h5>
+
+        </div>
+
+
+      </div>
+
+  </body>
+
+  <script
+  src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous"></script>
+
+  <script type="text/javascript">
+
+    // get server data from ajax call
+    $('button').click(()=>{
+
+      // get data from the text field
+      let search_query = $("input").val()
+
+      $.ajax({
+        url: "http://localhost:5000/search",
+        type: 'POST',
+        data: {'search':search_query},
+        success:function(data){
+
+              let div = $('.search-result');
+              $('.search-r').remove();
+
+              if(data.msg != 'no'){
+
+              data.msg.forEach((innerarry)=>{
+                innerarry.forEach((val)=>{
+                  console.log(val);
+                  let search =  $('<div class="search-r"></div>')
+
+                  let h4 = $("<h4></h4>");
+                  h4.text(val.author);
+                  let p = $("<p></p>");
+                  p.text(val.desc);
+                  let h5 = $("<h5></h5>")
+                  h5.text(val.price);
+
+                  search.append(h4);
+                  search.append(p);
+                  search.append(h5);
+
+                  div.append(search);
+
+
+                });
+              });
+
+            }
+            else{
+              let search =  $('<div class="search-r"></div>')
+
+              let h4 = $("<h4></h4>");
+              h4.text('snap!! no data found');
+
+              search.append(h4);
+
+              div.append(search);
+
+            }
+
+
+        }
+      });
+
+
+    });
+
+  </script>
+
+</html>

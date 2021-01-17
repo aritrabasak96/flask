@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Admin page</title>
+
+    <style media="screen">
+      label{
+        display: block;
+        margin: 10px 0px;
+      }
+      input{
+        display: block;
+        margin: 10px 0px;
+      }
+    </style>
+  </head>
+  <body>
+
+    <form action="/" method="post">
+
+      <h3>Add book details</h3>
+      <label>Book title</label>
+      <input type="text" name="key" value="" placeholder="enter the book title">
+      <label>Book author</label>
+      <input type="text" name="author" value="" placeholder="book author">
+      <label>Book description</label>
+      <textarea name="desc" rows="8" cols="80" placeholder="enter the book description"></textarea>
+      <label>Book price</label>
+      <input type="number" name="price" value="" placeholder="book price">
+
+      <button type="submit" name="button">submit</button>
+
+
+    </form>
+
+
+  </body>
+</html>

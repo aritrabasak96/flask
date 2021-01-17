@@ -1,0 +1,3 @@
+
+FLASK_APP=flaskmongoexample
+FLASK_ENV=developemnt

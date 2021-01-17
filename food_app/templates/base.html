@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewpost" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+
+    <title>Food app</title>
+     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ url_for('static' , filename='css/home.css') }}">
+  </head>
+  <body>
+
+    <!-- .... header section -->
+    <div class="header">
+     <img src="{{url_for('static', filename='images/food_cover2.jpg')  }}" alt="coverimg">
+     <h1>Delicious Cakes order online</h1>
+     <p>Cake is a form of sweet food made from flour, sugar, and other ingredients,<br> that is usually baked. In their oldest forms, cakes were modifications of breads,<br> but cakes now cover a wide range of preparations that can be simple or elaborate<br>, and that share features with other desserts such as pastries, meringues, custards, and pies.</p>
+    </div>
+
+    <!-- .... popular cakes -->
+    <div class="popular">
+      {% block popular %}{% endblock %}
+    </div>
+    <!-- ........... recommendation cakes -->
+    <div class="recommended">
+       {% block recommended %}{% endblock %}
+    </div>
+    <!-- ............ others  -->
+    <div class="others">
+      {% block others %}{% endblock %}
+    </div>
+    <!-- .............. footer -->
+    <div class="footer">
+
+    </div>
+
+  </body>
+</html>
